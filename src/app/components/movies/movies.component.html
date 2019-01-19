@@ -1,0 +1,86 @@
+<div class="container-fluid">
+
+  <form class="form-inline">
+    <div class="form-group mb-2">
+      <input type="search"  class="form-control" id="searchText"  [(ngModel)]="searchText" placeholder="Search..." name="search">
+    </div>
+    <div class="form-group mx-sm-3 mb-2">
+      <select [(ngModel)]="columnName" class="form-control" name="colmn">
+        <option *ngFor="let coulmn of columns" [ngValue]="coulmn.key">{{coulmn.displayName}}</option>
+      </select>
+    </div>
+    <div class="form-group mx-sm-3 mb-2 float-right">
+      Theme:
+      <select [(ngModel)]="theme" name="theme" class="form-control">
+        <option [ngValue] = "'dark'">Dark</option>
+        <option [ngValue] = "'light'">Light</option>
+      </select>
+    </div>
+  </form>
+
+
+  <div [class]="theme">
+
+    <table class="table-responsive">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col" class="pointer" (click)="sort('movie_title')">Title
+          <i class="fa" [ngClass]="{'fa-sort': column != 'movie_title','fa-sort-asc': (column == 'movie_title' && !isDesc), 'fa-sort-desc': (column == 'movie_title' && isDesc) }"
+             aria-hidden="true">
+          </i>
+        </th>
+        <th scope="col">Director</th>
+        <th scope="col">Actor 1</th>
+        <th scope="col">Actor 2</th>
+        <th scope="col" class="pointer" (click)="sort('genres')">Genres
+          <i class="fa" [ngClass]="{'fa-sort': column != 'genres','fa-sort-asc': (column == 'genres' && !isDesc), 'fa-sort-desc': (column == 'genres' && isDesc) }"
+             aria-hidden="true">
+          </i></th>
+        <th scope="col" class="pointer" (click)="sort('language')">Language
+          <i class="fa" [ngClass]="{'fa-sort': column != 'language','fa-sort-asc': (column == 'language' && !isDesc), 'fa-sort-desc': (column == 'language' && isDesc) }"
+             aria-hidden="true">
+          </i></th>
+        <th scope="col" class="pointer" (click)="sort('country')">Country
+          <i class="fa" [ngClass]="{'fa-sort': column != 'country','fa-sort-asc': (column == 'country' && !isDesc), 'fa-sort-desc': (column == 'country' && isDesc) }"
+             aria-hidden="true">
+          </i></th>
+        <th scope="col">Rating</th>
+        <th scope="col" class="pointer" (click)="sort('budget')">Budget
+          <i class="fa" [ngClass]="{'fa-sort': column != 'budget','fa-sort-asc': (column == 'budget' && !isDesc), 'fa-sort-desc': (column == 'budget' && isDesc) }"
+             aria-hidden="true">
+          </i></th>
+        <th scope="col" class="pointer" (click)="sort('title_year')">Year
+          <i class="fa" [ngClass]="{'fa-sort': column != 'title_year','fa-sort-asc': (column == 'title_year' && !isDesc), 'fa-sort-desc': (column == 'title_year' && isDesc) }"
+             aria-hidden="true">
+          </i></th>
+        <th scope="col" class="flex-wrap">Keywords</th>
+        <th scope="col">IMDB Link</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let movie of movieBatch | filterBy:columnName:searchText | orderBy : {property:column, direction: direction}; let i= index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{movie.movie_title}}</td>
+        <td>{{movie.director_name}}</td>
+        <td>{{movie.actor_1_name}}</td>
+        <td>{{movie.actor_2_name}}</td>
+        <td>{{movie.genres}}</td>
+        <td>{{movie.language}}</td>
+        <td>{{movie.country}}</td>
+        <td>{{movie.content_rating}}</td>
+        <td>{{movie.budget}}</td>
+        <td>{{movie.title_year}}</td>
+        <td>{{movie.plot_keywords}}</td>
+        <td><a [href]="movie.movie_imdb_link" target="_blank">click</a></td>
+      </tr>
+      </tbody>
+    </table>
+    <br>
+    <div class="d-flex justify-content-center">
+      <ngb-pagination [collectionSize]="movies.length" [(page)]="page" [maxSize]="10" (pageChange)="setPage($event)"></ngb-pagination>
+    </div>
+
+
+  </div>
+</div>
