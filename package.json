@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build  --output-path=dist",
+    "build": "ng build",
     "test": "ng test",
     "server":"node server.js",
     "lint": "ng lint",
