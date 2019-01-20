@@ -60,7 +60,7 @@
       </thead>
       <tbody>
       <tr *ngFor="let movie of movieBatch | filterBy:columnName:searchText | orderBy : {property:column, direction: direction}; let i= index">
-        <th scope="row">{{i+1}}</th>
+        <th scope="row">{{batchSize*(page-1) + i+1}}</th>
         <td>{{movie.movie_title}}</td>
         <td>{{movie.director_name}}</td>
         <td>{{movie.actor_1_name}}</td>
@@ -78,7 +78,7 @@
     </table>
     <br>
     <div class="d-flex justify-content-center">
-      <ngb-pagination [collectionSize]="movies.length" [(page)]="page" [maxSize]="10" (pageChange)="setPage($event)"></ngb-pagination>
+      <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [maxSize]="paginationMaxSize" (pageChange)="setPage($event)"  [rotate]="true" [boundaryLinks]="true"></ngb-pagination>
     </div>
 
 

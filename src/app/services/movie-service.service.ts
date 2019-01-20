@@ -6,11 +6,11 @@ import {HttpClient} from '@angular/common/http';
 })
 export class MovieServiceService {
 
-  private movieDetailsEndpoint = 'http://starlord.hackerearth.com/movies';
+  private movieDetailsEndpoint = 'http://demo8168888.mockable.io/movies';
   constructor(private http: HttpClient) { }
   getMovieDetails() {
     // not called given url as its not allowing the cors request;
-    return this.http.get('assets/movies.json');
+    return this.http.get(this.movieDetailsEndpoint);
   }
 
 }

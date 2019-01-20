@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MovieServiceService} from '../../services/movie-service.service';
-import {TitlePipe} from '../../pipes/title.pipe';
-import {el} from '@angular/platform-browser/testing/src/browser_util';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-movies',
@@ -19,6 +18,9 @@ export class MoviesComponent implements OnInit {
   public direction = -1;
   public page = 1;
   public movieBatch = [];
+  public batchSize = environment.batchSize;
+  public paginationMaxSize = environment.paginationMaxSize;
+  public collectionSize = 20;
   public columns = [
     {
       key: 'title',
@@ -66,7 +68,9 @@ export class MoviesComponent implements OnInit {
   }
 
   setPage(pageNum) {
-    this.movieBatch = this.movies.slice(10 * (pageNum - 1), 10 * pageNum);
+    this.movieBatch = this.movies.slice(this.batchSize * (pageNum - 1), this.batchSize * pageNum);
+    this.collectionSize = (this.movies.length / (this.batchSize / 10));
+    this.page = pageNum;
   }
 
 }

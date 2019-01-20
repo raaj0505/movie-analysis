@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  batchSize: 10,
+  paginationMaxSize: 10
 };
