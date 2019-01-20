@@ -4,11 +4,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build  --prod --output-path=dist/movie-analysis",
-    "server": "node server.js",
+    "build": "ng build  --output-path=dist",
     "test": "ng test",
+    "server":"node server.js",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --aot --prod"
   },
   "engines": {
     "node": "6.11.0",
