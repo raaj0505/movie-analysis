@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build  --prod --output-path=dist",
+    "build": "ng build  --prod --output-path=dist/movie-analysis",
     "server": "node server.js",
     "test": "ng test",
     "lint": "ng lint",
