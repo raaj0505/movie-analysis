@@ -1,20 +1,8 @@
 {
   "name": "movie-analysis",
-  "version": "0.0.0",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "server":"node server.js",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
-  },
-  "engines": {
-    "node": "6.11.0",
-    "npm": "3.10.10"
-  },
-  "private": true,
+  "version": "1.0.0",
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.",
+  "main": "server.js",
   "dependencies": {
     "@angular/animations": "^6.0.3",
     "@angular/common": "^6.0.3",
@@ -52,5 +40,28 @@
     "protractor": "~5.3.0",
     "ts-node": "~5.0.1",
     "tslint": "~5.9.1"
+  },
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build --outputPath=dist",
+    "test": "ng test",
+    "server": "node server.js",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raaj0505/movie-analysis.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raaj0505/movie-analysis/issues"
+  },
+  "homepage": "https://github.com/raaj0505/movie-analysis#readme",
+  "engines": {
+    "node": "6.11.0",
+    "npm": "3.10.10"
   }
 }
