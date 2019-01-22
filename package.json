@@ -48,8 +48,7 @@
     "test": "ng test",
     "server": "node server.js",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "postinstall": "npm run build"
+    "e2e": "ng e2e"
   },
   "repository": {
     "type": "git",
