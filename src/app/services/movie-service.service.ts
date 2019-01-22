@@ -6,7 +6,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class MovieServiceService {
 
-  private movieDetailsEndpoint = 'http://demo8168888.mockable.io/movies';
+  private movieDetailsEndpoint = 'https://demo8168888.mockable.io/movies';
   constructor(private http: HttpClient) { }
   getMovieDetails() {
     // not called given url as its not allowing the cors request;
