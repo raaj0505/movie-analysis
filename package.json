@@ -5,11 +5,12 @@
   "main": "server.js",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve -o",
+    "start": "node server.js",
     "build": "ng build --outputPath=dist",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "npm run build"
   },
   "dependencies": {
     "@angular/animations": "^6.1.10",
