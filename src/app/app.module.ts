@@ -14,6 +14,7 @@ import {TitleYearPipe} from './pipes/titleYear.pipe';
 import {GenresPipe} from './pipes/genres.pipe';
 import {OrderByPipe} from './pipes/orderBy.pipe';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {DropdownModule, MDBBootstrapModule} from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    MDBBootstrapModule.forRoot(),
+    DropdownModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

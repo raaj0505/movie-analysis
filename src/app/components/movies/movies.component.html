@@ -1,27 +1,30 @@
 <div class="container-fluid">
 
-  <form class="form-inline">
-    <div class="form-group mb-2">
-      <input type="search"  class="form-control" id="searchText"  [(ngModel)]="searchText" placeholder="Search..." name="search">
-    </div>
-    <div class="form-group mx-sm-3 mb-2">
-      <select [(ngModel)]="columnName" class="form-control" name="colmn">
-        <option *ngFor="let coulmn of columns" [ngValue]="coulmn.key">{{coulmn.displayName}}</option>
-      </select>
-    </div>
-    <div class="form-group mx-sm-3 mb-2 float-right">
-      Theme:
-      <select [(ngModel)]="theme" name="theme" class="form-control">
-        <option [ngValue] = "'dark'">Dark</option>
-        <option [ngValue] = "'light'">Light</option>
-      </select>
-    </div>
-  </form>
+  <div>
+    <form class="form-inline">
+      <div class="form-group mb-2">
+        <input type="search"  class="form-control" id="searchText"  [(ngModel)]="searchText" placeholder="Search..." name="search">
+      </div>
+      <div class="form-group mx-sm-3 mb-2">
+        <select [(ngModel)]="columnName" class="form-control" name="colmn">
+          <option *ngFor="let coulmn of columns" [ngValue]="coulmn.key">{{coulmn.displayName}}</option>
+        </select>
+      </div>
+      <div class="form-group mx-sm-3 mb-2 float-right">
+        Theme:
+        <select [(ngModel)]="theme" name="theme" class="form-control">
+          <option [ngValue] = "'dark'">Dark</option>
+          <option [ngValue] = "'light'">Light</option>
+        </select>
+      </div>
+    </form>
+  </div>
+
 
 
   <div [class]="theme">
 
-    <table class="table-responsive">
+    <table mdbTable>
       <thead>
       <tr>
         <th scope="col">#</th>
@@ -59,7 +62,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let movie of movieBatch | filterBy:columnName:searchText | orderBy : {property:column, direction: direction}; let i= index">
+      <tr mdbTableCol *ngFor="let movie of movieBatch | filterBy:columnName:searchText | orderBy : {property:column, direction: direction}; let i= index">
         <th scope="row">{{batchSize*(page-1) + i+1}}</th>
         <td>{{movie.movie_title}}</td>
         <td>{{movie.director_name}}</td>
@@ -72,7 +75,7 @@
         <td>{{movie.budget}}</td>
         <td>{{movie.title_year}}</td>
         <td>{{movie.plot_keywords}}</td>
-        <td><a [href]="movie.movie_imdb_link" target="_blank">click</a></td>
+        <td><a [href]="movie.movie_imdb_link" target="_blank" class="link"><button type="button" class="btn btn-light">Click</button></a></td>
       </tr>
       </tbody>
     </table>
